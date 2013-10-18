@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+
+<html lang=en>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>HTML5 Audio Controls Test</title>
+
+<link rel="stylesheet" href="styles/tests.css" type="text/css"/>
+
+<!-- Hack to get IE to recognize  HTML5 elements-->
+
+<!-- See http://remysharp.com/2009/01/07/html5-enabling-script/comment-page-3/#allcomments-->
+
+<!--[if IE]>
+
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>    
+
+<![endif]-->
+
+<style type="text/css">
+
+  header,footer,audio { 
+
+    display: block;
+
+  }
+
+  body { 
+
+    font-family: Arial, sans-serif;
+
+    font-size: 1.1em;
+
+    width: 75%;
+
+  }
+
+  header { 
+
+    border-bottom: #340449 solid 2px;
+
+  }
+
+  audio#player2 { 
+
+    height: 1px;
+
+  }
+
+  footer { 
+
+    clear: left;
+
+    margin-top: 2em;
+
+    padding-top: 1em;
+
+    border-top: thin #ccc solid;
+
+    font-size: 0.9em;
+
+  }
+
+  #controls { 
+
+    position: relative;
+
+    border: 2px solid #4c4c4c; 
+
+    background-color: #666666; 
+
+    width: 464px; 
+
+    height: 30px;
+
+    line-height: 30px;
+
+  }
+
+  audio#player1 { 
+
+    border: 2px solid #FFFFFF; /* masked against background until audio has focus */
+
+  }
+
+  input { 
+
+    border: 2px solid #666666; /* masked against background until input has focus*/
+
+    position: absolute;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+  }
+
+  audio#player1:focus, audio#player1:active, audio#player1:hover, 
+
+  input:focus, input:hover, input:active { 
+
+    border-color: #ffff00 !important; /* yellow */
+
+  }
+
+  input#playpause {
+
+    top: 0px;
+
+    left: 0px;
+
+    width: 34px;
+
+    height: 30px;
+
+    background-color: transparent;
+
+    background-image: url('images/audio_play.gif');
+
+    color: transparent;
+
+    border-right-color: #848484; 
+
+  }
+
+  #seekBar { 
+
+    top: 0px;
+
+    left: 40px;
+
+    width: 200px;
+
+    height: 26px;
+
+  }
+
+  input#seekBack {
+
+    top: 0px;
+
+    left: 40px;
+
+    width: 34px;
+
+    height: 30px;
+
+    background-color: transparent;
+
+    background-image: url('images/audio_rewind.gif');
+
+    color: transparent;
+
+  }
+
+  input#seekForward {
+
+    top: 0px;
+
+    left: 80px;
+
+    width: 34px;
+
+    height: 30px;
+
+    background-color: transparent;
+
+    background-image: url('images/audio_forward.gif');
+
+    color: transparent;
+
+  }
+
+  span#timer { /* contains both span#currentTime and span#duration */
+
+    position: absolute;
+
+    left: 250px;
+
+    width: 100px;
+
+    color: #ffffff;
+
+  }
+
+  input#muteButton { 
+
+    left: 360px; 
+
+    top: 0px;
+
+    width: 34px;
+
+    height: 30px;
+
+    background-color: transparent;
+
+    background-image: url('images/audio_volume.gif');
+
+    color: transparent;
+
+    border-left-color: #848484; 
+
+  }
+
+  input#volumeControl {
+
+    /* not used, but here for future reference */
+
+    display: none;
+
+    left: 360px;
+
+    top: -105px;
+
+    height: 100px;
+
+    width: 30px;
+
+    background-color: #666666;
+
+    border: 2px solid #4c4c4c;
+
+    color: #ffffff;
+
+  }
+
+  input#volumeUp { 
+
+    top: 0px;
+
+    left: 395px;
+
+    width: 34px;
+
+    height: 30px;
+
+    background-color: transparent;
+
+    background-image: url('images/audio_volumeUp.gif');
+
+    color: transparent;
+
+  }
+
+  input#volumeDown { 
+
+    top: 0px;
+
+    left: 430px;
+
+    width: 34px;
+
+    height: 30px;
+
+    background-color: transparent;
+
+    background-image: url('images/audio_volumeDown.gif');
+
+    color: transparent;
+
+  }
+
+  .offscreen { 
+
+    position:absolute;
+
+    left:-10000px;
+
+    top:auto;
+
+    width:1px;
+
+    height:1px;
+
+    overflow:hidden;
+
+  }
+
+</style>
+
+
+<body onload="init()">
+
+<header role="banner">
+
+<h1>HTML5 Audio Test</h1>
+
+</header>
+
+<div role="main">
+
+
+
+  <h2>MP3 Audio (Chrome Only)</h2>
+
+  <audio id="player1" preload controls tabindex="0">
+
+    <source type="audio/mpeg" src="audio-test1.mp3"/>
+    
+    Your browser does not support HTML5 audio.
+
+  </audio>
+
+
+  <h2>Ogg Audio</h2>
+
+  <audio id="player1" preload controls tabindex="0">
+
+    <source type="audio/ogg" src="audio-test1_1.ogg"/>
+
+    Your browser does not support HTML5 audio.
+
+  </audio>
+  
+  <p><a href="index.html">Back to HTML5 Development</a></p>
+
+
+</div>
+
+</body>
+
+</html>
